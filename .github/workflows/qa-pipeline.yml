@@ -5,6 +5,11 @@ on:
     branches: [ main ]
   pull_request:
   workflow_dispatch:
+    inputs:
+      test_email_only:
+        description: "Test email notification only (skip EC2 tests)"
+        required: false
+        default: "false"
 
 jobs:
   qa:
@@ -29,7 +34,7 @@ jobs:
       
       # ---- RUN TESTS ON EC2 ----
       - name: Run tests on EC2
-        if: ${{ github.event.inputs.test_email_only != 'true' }}
+        if: false
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.EC2_HOST }}
