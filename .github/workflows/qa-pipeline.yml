@@ -34,7 +34,6 @@ jobs:
       
       # ---- RUN TESTS ON EC2 ----
       - name: Run tests on EC2
-        if: false
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.EC2_HOST }}
@@ -74,6 +73,6 @@ jobs:
 
             Playwright Report:
             https://qa-playwright-reports-sdet-div.s3.amazonaws.com/latest/index.html
-          to: your-email@gmail.com
+          to: reply2divyendu@gmail.com
           from: QA Automation Pipeline
 
