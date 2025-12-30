@@ -1,9 +1,9 @@
-Book Library — QA Automation Showcase
-🚀 Overview
+##Book Library — QA Automation Showcase
+#Overview
 
 A full-stack QA automation project demonstrating modern testing practices across unit, API, and UI layers, executed locally, in Docker, and in CI.
 
-🧱 Tech Stack
+Tech Stack
 
 App: Next.js 14 (TypeScript, App Router)
 
@@ -15,7 +15,7 @@ Containerization: Docker (Playwright official image)
 
 CI/CD: GitHub Actions
 
-🧪 Testing Strategy
+Testing Strategy
 Layer	Tool	Purpose
 Unit	Vitest	Business logic validation
 API	Playwright	Backend contract testing
@@ -25,7 +25,7 @@ UI	Playwright	User-visible confidence
 ✔ Deterministic tests
 ✔ Fast feedback
 
-🐳 Docker Execution
+Docker Execution
 docker build -t qa-playwright .
 docker run --rm qa-playwright
 
@@ -40,7 +40,7 @@ UI tests
 
 Generates Playwright HTML report
 
-🤖 CI Pipeline
+CI Pipeline
 
 Triggered on PR & push
 
@@ -50,7 +50,7 @@ Runs full test suite
 
 Uploads HTML report artifact
 
-🧠 Key Learnings
+Key Learnings
 
 Next.js App Router runtime behavior
 
@@ -60,7 +60,7 @@ Playwright Docker version alignment
 
 Single-root dependency management
 
-🔮 Future Enhancements
+Future Enhancements
 
 S3 upload for reports
 
