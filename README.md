@@ -1,71 +1,71 @@
-##Book Library — QA Automation Showcase
-#Overview
+# QA Automation Full-Stack Showcase
 
-A full-stack QA automation project demonstrating modern testing practices across unit, API, and UI layers, executed locally, in Docker, and in CI.
+## 🚀 Overview
+A production-grade QA automation project demonstrating how to test, run, and report quality across **unit, API, and UI layers** using modern CI/CD practices.
 
-Tech Stack
+This is not a demo-only project — it reflects real-world constraints, failures, and design decisions.
 
-App: Next.js 14 (TypeScript, App Router)
+---
 
-Unit Testing: Vitest
+## 🧱 Tech Stack
+- Application: Next.js (TypeScript)
+- Unit Testing: Vitest
+- API & UI Testing: Playwright
+- Containerization: Docker
+- CI/CD: GitHub Actions
+- Test Execution: EC2 (offloaded E2E)
+- Reporting: Playwright HTML → Amazon S3
+- Notifications: Email (Gmail App Password)
 
-API & E2E Testing: Playwright
+---
 
-Containerization: Docker (Playwright official image)
+## 🧪 Testing Strategy
+| Layer | Tool | Purpose |
+|------|------|--------|
+| Unit | Vitest | Business logic validation |
+| API | Playwright | Backend contract testing |
+| UI  | Playwright | User-visible confidence only |
 
-CI/CD: GitHub Actions
+✔ No redundant coverage  
+✔ Stable E2E design  
+✔ Production build testing  
 
-Testing Strategy
-Layer	Tool	Purpose
-Unit	Vitest	Business logic validation
-API	Playwright	Backend contract testing
-UI	Playwright	User-visible confidence
+---
 
-✔ No redundant coverage
-✔ Deterministic tests
-✔ Fast feedback
+## ⚙️ CI/CD Workflow
+1. Code pushed to GitHub
+2. Unit tests run on CI runner (fast fail)
+3. E2E tests run in Docker on EC2
+4. Playwright HTML report generated
+5. Report uploaded to S3
+6. Email sent with report link
 
-Docker Execution
-docker build -t qa-playwright .
-docker run --rm qa-playwright
+---
 
+## 📊 Test Reports
+Latest report (public):
+👉 https://qa-playwright-reports-sdet-div.s3.amazonaws.com/latest/index.html
 
-Runs:
+---
 
-App server
+## 🔐 Security Decisions
+- No AWS access keys stored
+- EC2 uses IAM role
+- Email uses app-specific password
+- Secrets managed via GitHub Actions
 
-API tests
+---
 
-UI tests
+## 🧠 Key Learnings
+- Next.js App Router caching vs E2E
+- Playwright Docker version alignment
+- CI ergonomics and feedback optimization
+- Cost-aware cloud design
 
-Generates Playwright HTML report
+---
 
-CI Pipeline
-
-Triggered on PR & push
-
-Starts app
-
-Runs full test suite
-
-Uploads HTML report artifact
-
-Key Learnings
-
-Next.js App Router runtime behavior
-
-Server-side caching vs E2E testing
-
-Playwright Docker version alignment
-
-Single-root dependency management
-
-Future Enhancements
-
-S3 upload for reports
-
-Email notifications (SES/Gmail)
-
-Kubernetes Job execution
-
-Auth & role-based flows
+## 🔮 Future Enhancements
+- Slack / Teams notifications
+- Presigned S3 URLs
+- Parallel E2E execution
+- EKS-based test runners
