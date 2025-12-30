@@ -29,6 +29,7 @@ jobs:
       
       # ---- RUN TESTS ON EC2 ----
       - name: Run tests on EC2
+        if: ${{ github.event.inputs.test_email_only != 'true' }}
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.EC2_HOST }}
@@ -42,6 +43,7 @@ jobs:
               -v $(pwd)/playwright-report:/app/playwright-report \
               qa-playwright
             aws s3 sync playwright-report s3://qa-playwright-reports-sdet-div/latest
+            docker image prune -f
 
       # ---- REPORT ARTIFACT ----
       - name: Upload Playwright Report
